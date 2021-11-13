@@ -19,3 +19,7 @@ app.listen(8080, function () {
     var Answers = {}; //an array of answers to return
     return Answers
 });
+
+
+
+//need to set header to cors-allow
