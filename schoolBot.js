@@ -68,15 +68,25 @@ function submitAnswer()
 
 function apiReq(link)
 {
-	var requestURL = 'localhost:8080';
-	var request = new XMLHttpRequest();
-	request.open('GET', requestURL);
-	request.responseType = 'json';
-	request.send();
-	request.onload = function() {
-	  const pageData = request.response;
-		console.log(pageData);
-	}
+	var requestURL = 'http://localhost:8080';
+	var prequest = new XMLHttpRequest();
+  var grequest = new XMLHttpRequest();
+  prequest.open('POST', requestURL);
+	prequest.open('GET', requestURL);
+	prequest.responseType = 'json';
+	prequest.send(link);
+	prequest.onload = function() {
+	  const pageData = prequest.response;
+		alert(pageData);
+		grequest.open('POST', requestURL);
+		grequest.open('GET', requestURL);
+		grequest.responseType = 'json';
+		grequest.send();
+		grequest.onload = function() {
+			const pageData = grequest.response;
+			alert(pageData);
+		}
+  }
 }
 
 function searchAnswer(question)
