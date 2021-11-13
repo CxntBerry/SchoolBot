@@ -1,9 +1,16 @@
 const express = require("express");
 const app = express();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
+
 app.listen(8080, function () {
     var link = "https://brainly.com/question/185500"
     var request = new XMLHttpRequest();
