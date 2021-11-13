@@ -3,7 +3,6 @@
 //maybe try to send a request to a vps server and use php to look at the data
 //submitted by this and the data on brainly.com and compares them with an algorithim.
 
-
 function continueBtn()
 {
 	continuebtn = document.getElementsByClassName('nav-button mat-focus-indicator mat-raised-button mat-button-base mat-primary ng-star-inserted');
@@ -67,7 +66,18 @@ function submitAnswer()
   btn.click();
 }
 
-
+function apiReq(link)
+{
+	var requestURL = 'localhost:3000';
+	var request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+	  const pageData = request.response;
+		console.log(pageData);
+	}
+}
 
 function searchAnswer(question)
 {
@@ -77,8 +87,8 @@ function searchAnswer(question)
 	request.responseType = 'json';
 	request.send();
 	request.onload = function() {
-	  const firstPage = request.response['items'][0]['link'];
-		console.log(firstPage)
+	  const brainlyLink = request.response['items'][0]['link'];
+		apiReq(brainlyLink);
 	  //send website address to custom api
 		//return a call to a function on a custom api that searches for answers in website.
 	}
