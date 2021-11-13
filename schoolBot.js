@@ -68,7 +68,7 @@ function submitAnswer()
 
 function apiReq(link)
 {
-	var requestURL = 'localhost:3000';
+	var requestURL = 'localhost:8080';
 	var request = new XMLHttpRequest();
 	request.open('GET', requestURL);
 	request.responseType = 'json';
