@@ -1,14 +1,13 @@
 const express = require("express");
 const app = express();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-app.use((req, res, next) => {
+
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/index.html");
+    res.set("Referrer-Policy", "no-referrer");
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.append('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
-app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
 });
 
 app.listen(8080, function () {
