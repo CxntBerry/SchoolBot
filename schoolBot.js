@@ -1,5 +1,8 @@
 //browserjs
 
+//maybe try to send a request to a vps server and use php to look at the data
+//submitted by this and the data on brainly.com and compares them with an algorithim.
+
 
 function continueBtn()
 {
@@ -55,14 +58,6 @@ function clickQuestion(question)
 
 //clickQuestion(2)
 
-function createIframe()
-{
-	var iframe = document.createElement('iframe');
-
-	iframe.style.display = "block";
-	iframe.src = https://www.google.com;
-	document.body.appendChild(iframe);
-}
 
 
 
@@ -76,19 +71,18 @@ function submitAnswer()
 
 function searchAnswer(question)
 {
-  var url = https://www.google.com;
-  var searchBar = document.getElementsByClassName('gLFyf gsfi');
-
-  console.log(searchBar);
-
-	var bestAnswer;
-	return bestAnswer; //return top rated? answer
+	var requestURL = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDeTs94j-j-R-OrVHxOVQ4jy3DarCnTuKM&cx=2f331d895ab74a56b&q=' + question;
+	var request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+	  const firstPage = request.response['items'][0]['link'];
+		console.log(firstPage)
+	  //send website address to custom api
+		//return a call to a function on a custom api that searches for answers in website.
+	}
 }
-
-
-
-
-
 
 
 function main()
@@ -110,8 +104,6 @@ function main()
 	  }
   }
 
-
-
 								// DEPRECATED
 
 		/*if (searchAnswer(getQuestion) == getChoices(1) || searchAnswer(getQuestion) == getChoices(2) || searchAnswer(getQuestion) == getChoices(3) || searchAnswer(getQuestion) == getChoices(4))
@@ -121,8 +113,6 @@ function main()
 			clickQuestion() //FIX THIS IN SCHOOL
 
 		}*/ // Deprecated fixed in school
-
-
 
 }
 
