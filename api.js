@@ -5,16 +5,16 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 
 app.use(express.json());
-
+/*
 app.post('/', (req, res) => {
   req.body; // JavaScript object containing the parse JSON
   res.json(req.body);
   console.log('Got req body:', req.body);
   console.log('Got res body:', res.body);
   res.send("DATA_HERE");
-});
+});*/
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/index.php");
     res.set("Referrer-Policy", "no-referrer");
     res.append('Content-Type', 'application/json');
     res.append('Access-Control-Allow-Origin', ['*']);
