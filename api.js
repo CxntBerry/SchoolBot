@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
   res.send("DATA_HERE");
 });*/
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.php");
+    res.sendFile(__dirname + "/data.json");
     res.set("Referrer-Policy", "no-referrer");
     res.append('Content-Type', 'application/json');
     res.append('Access-Control-Allow-Origin', ['*']);
