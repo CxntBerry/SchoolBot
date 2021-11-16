@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-
+app.use(serveStatic(path.join(__dirname, '../index.php', function (req, res) {
+  res.setHeader();
+});
 
 app.get("/", function (req, res) {
     res.set("Referrer-Policy", "no-referrer");
-    res.append('Content-Type', 'application/x-www-form-urlencoded');
+    res.append('Content-Type', 'application/json');
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', 'POST');
     res.append('Access-Control-Allow-Headers', 'Content-Type');
