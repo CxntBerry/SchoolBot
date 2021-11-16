@@ -68,24 +68,13 @@ function submitAnswer()
 
 function apiReq(link)
 {
-	var requestURL = 'http://localhost:8080';
+	var requestURL = 'http://localhost:8080/link.php';
 	var prequest = new XMLHttpRequest();
-  var grequest = new XMLHttpRequest();
   prequest.open('POST', requestURL);
-	prequest.open('GET', requestURL);
 	prequest.responseType = 'json';
-	prequest.send(link);
+	prequest.send("link=" + link);
 	prequest.onload = function() {
 	  const pageData = prequest.response;
-		alert(pageData);
-		grequest.open('POST', requestURL);
-		grequest.open('GET', requestURL);
-		grequest.responseType = 'json';
-		grequest.send();
-		grequest.onload = function() {
-			const pageData = grequest.response;
-			alert(pageData);
-		}
   }
 }
 
