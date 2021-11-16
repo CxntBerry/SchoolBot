@@ -18,6 +18,8 @@ function getQuestion()
 	return googleString
 }
 
+
+
 function getChoices(qnum)
 {
 		//81,83,85,87
@@ -42,6 +44,14 @@ function getChoices(qnum)
 }
 
 //console.log(getChoices())
+
+function stringMatch(answers,  choices) // an algorithim to match choices with answer
+{ //answers is an array, choices is an array stringMatch({answers}, getChoices())
+	for (i = 0; i < answers.length; i++)
+	{
+		
+	}
+}
 
 
 
