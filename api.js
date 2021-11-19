@@ -6,7 +6,7 @@ app.get('/api', (req, res) => {
   const puppeteer = require('puppeteer');
 
   (async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ slowMo: 250 });
     const page = await browser.newPage();
     await page.goto(link);
     await page.screenshot({ path: 'example.png' });
