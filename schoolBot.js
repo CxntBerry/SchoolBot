@@ -85,7 +85,9 @@ function apiReq(link)
 	request.send();
 	request.onload = function() {
 	  const data = request.response;
-		console.log(brainlyLink);
+		var link = data['link']
+		var answers = data['answers']
+		console.log(answers);
 	  //send website address to custom api
 		//return a call to a function on a custom api that searches for answers in website.
     }
