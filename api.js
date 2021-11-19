@@ -1,21 +1,20 @@
 const express = require('express');
 const app = express();
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 app.get('/api', (req, res) => {
   const link = req.query.link;
-  const puppeteer = require('puppeteer');
+  var xhr = new XMLHttpRequest();
+  var requestURL = link;
+  xhr.open('GET', requestURL);
+	xhr.send();
+	xhr.onload = function() {
+	  const pageData = xhr.response;
+    var array = [link, pageData];
+    res.send({ link: array[0],
+              answers: array[1] });
+  }
 
-  (async () => {
-    const browser = await puppeteer.launch({ slowMo: 250 });
-    const page = await browser.newPage();
-    await page.goto(link);
-    await page.screenshot({ path: 'example.png' });
-
-    await browser.close();
-  })();
-  var array = [link, 'exampleAnswer'];
-  res.send({ link: array[0],
-            answers: array[1] });
 });
 
 app.listen(8080, () => console.log('alive on localhost:8080'));
