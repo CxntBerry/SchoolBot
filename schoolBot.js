@@ -49,7 +49,7 @@ function stringMatch(answers,  choices) // an algorithim to match choices with a
 { //answers is an array, choices is an array stringMatch({answers}, getChoices())
 	for (i = 0; i < answers.length; i++)
 	{
-		
+
 	}
 }
 
@@ -78,7 +78,7 @@ function submitAnswer()
 
 function apiReq(link)
 {
-	var requestURL = 'http://localhost:8080/link.php';
+	var requestURL = 'http://localhost:8080/api?link=' + link;
 	var prequest = new XMLHttpRequest();
   prequest.open('POST', requestURL);
 	prequest.responseType = 'json';

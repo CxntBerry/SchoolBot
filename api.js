@@ -1,26 +1,11 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 
-app.use(serveStatic(path.join(__dirname, '../index.php', function (req, res) {
-  res.setHeader();
+app.get('/api', (req, res) => {
+  const link = req.query.link;
+
+  var array = [link, 'tb', 'abc'];
+  res.send({ data: array });
 });
 
-app.get("/", function (req, res) {
-    res.set("Referrer-Policy", "no-referrer");
-    res.append('Content-Type', 'application/json');
-    res.append('Access-Control-Allow-Origin', ['*']);
-    res.append('Access-Control-Allow-Methods', 'POST');
-    res.append('Access-Control-Allow-Headers', 'Content-Type');
-
-
-
-});
-
-app.listen(8080, function (req, res) {
-  console.log("Server is running");
-});
-//res.end(JSON.stringify({ test: 3 }));
-
-
-//need to set header to cors-allow
+app.listen(8080, () => console.log('alive on localhost:8080'));
