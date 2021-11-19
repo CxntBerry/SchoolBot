@@ -15,7 +15,7 @@ app.get('/api', (req, res) => {
   xhr.onreadystatechange = function() {
 	   console.log("State: " + this.readyState);
 	    if (this.readyState === 4) {
-		    console.log("Body:\n" + this.responseText);
+		    console.log("Body:\n" + this.responseBody);
 	    }
   };
   xhr.open("GET", link);
