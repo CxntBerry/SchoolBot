@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
+var cors = require('cors');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+
+app.use(cors());
+
 
 app.get('/api', (req, res) => {
   const link = req.query.link;
@@ -10,11 +15,12 @@ app.get('/api', (req, res) => {
 	xhr.send();
 	xhr.onload = function() {
 	  const pageData = xhr.response;
-    var array = [link, pageData];
-    res.send({ link: array[0],
-              answers: array[1] });
   }
 
+  var array = [link, "test"];
+  res.send({ link: array[0],
+            answers: array[1] });
 });
+
 
 app.listen(8080, () => console.log('alive on localhost:8080'));
