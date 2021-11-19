@@ -16,7 +16,7 @@ app.get('/api', (req, res) => {
 	xhr.onload = function() {
 	  const pageData = xhr.response;
   }
-
+  console.log("New GET request to /api?link=" + link + " on address: " + req.connection.remoteAddress);
   var array = [link, "test"];
   res.send({ link: array[0],
             answers: array[1] });
