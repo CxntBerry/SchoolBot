@@ -78,14 +78,17 @@ function submitAnswer()
 
 function apiReq(link)
 {
-	var requestURL = 'http://localhost:8080/api?link=' + link;
-	var prequest = new XMLHttpRequest();
-  prequest.open('POST', requestURL);
-	prequest.responseType = 'json';
-	prequest.send("link=" + link);
-	prequest.onload = function() {
-	  const pageData = prequest.response;
-  }
+	var requestURL = 'http://localhost:8080/api?link=' + "test";
+	var request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+	  const data = request.response;
+		console.log(brainlyLink);
+	  //send website address to custom api
+		//return a call to a function on a custom api that searches for answers in website.
+    }
 }
 
 function searchAnswer(question)
