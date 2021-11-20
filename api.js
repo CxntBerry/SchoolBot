@@ -30,7 +30,7 @@ app.get('/api', (req, res) => {
                answers: array[1] });
 	};
   xhr.send();
-
+  //_lr_geo_location=US
   console.log("New GET request to /api?link=" + link + " on address: " + req.connection.remoteAddress);
 
 
